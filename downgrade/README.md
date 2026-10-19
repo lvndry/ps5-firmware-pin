@@ -5,10 +5,21 @@ from a USB stick.
 
 ## Can you downgrade a PS5?
 
-Yes, while Sony's **keyset 0** is still active. As of October 2026 no rollback
-lock has shipped. When Sony retires a signing key, firmware signed with it
-stops installing for everyone, permanently. Until then, any official firmware
-file installs in either direction.
+**Yes, for now.** Every firmware is signed with one of Sony's signing keys.
+The community groups these keys by generation and calls each
+generation a "keyset". A console only installs firmware signed with a key
+it trusts, and Sony can retire a whole keyset in a future update. Once a
+keyset is retired, all firmware signed with it is rejected forever — that
+is what makes a downgrade impossible. We are on keyset 0, still active as of
+October 2026, so any official firmware file installs in either direction
+today.
+
+**How do you know a keyset is still active?** There is no setting to check:
+retiring a keyset is a system-wide change Sony makes, and the jailbreak
+community announces it loudly when it happens. You can also test it yourself:
+try installing an older PUP from a USB stick. If the keyset is still active
+it installs; if it was retired the console refuses the file. Nothing breaks
+in the worst case — the install is simply rejected.
 
 What changing firmware does:
 
