@@ -65,6 +65,13 @@ That's it. If an update prompt still appears, press **✕** to dismiss it.
 Want the console to stop seeing updates at all? See
 [`--full` mode](pin/README.md#--full-block-the-update-servers).
 
+## Is it safe?
+
+Yes — read the [FAQ](FAQ.md). The script deletes at most one downloaded file
+and, in `--full` mode, appends two lines to a hosts file it backs up first.
+It never writes firmware, never touches games or saves, and every change is
+verified before it reports success.
+
 ## The one rule
 
 **Never press confirm on an update screen.** Press ✕ to dismiss it. If you are
