@@ -65,6 +65,37 @@ That's it. If an update prompt still appears, press **✕** to dismiss it.
 Want the console to stop seeing updates at all? See
 [`--full` mode](pin/README.md#--full-block-the-update-servers).
 
+## Is it safe?
+
+**Yes.** The script deletes at most one update file and, in `--full` mode,
+appends two lines to a hosts file it backs up first. It never writes firmware,
+never touches games or saves, and verifies every change before it reports.
+
+**Can it brick the console?** No. Bricking needs a failed *install*, and this
+script only stops one from starting. Its complete set of writes:
+
+- `rm /update/PS5UPDATE.PUP` (if present)
+- `cp /etc/hosts /etc/hosts.fwpin.bak` (once, `--full`)
+- two `127.0.0.1` lines appended to `/etc/hosts` (`--full`)
+
+If it crashes or you lose power halfway, the worst state left is "a pending
+update file exists" — the state you started from.
+
+**Worst realistic case?** You accidentally confirm an update: the jailbreak
+is gone until your exploit supports the new firmware. Console, games and saves
+are untouched; the [downgrade script](downgrade/README.md) gets you back if
+you're stuck.
+
+**Does `--full` affect online play?** No — it blocks only the two update
+hostnames, not game traffic.
+
+**How do I undo it?** `python3 pin/ps5-fw-unpin.py --host 192.168.1.42`
+restores the hosts backup. After a `--floor`-only pin there's nothing to undo.
+
+**Still not sure?** Read the source: ~150 lines, no dependencies
+([`ps5-fw-pin.py`](pin/ps5-fw-pin.py)), and `--dry-run` previews every change
+before one is made.
+
 ## The one rule
 
 **Never press confirm on an update screen.** Press ✕ to dismiss it. If you are
