@@ -17,6 +17,7 @@ This repo has three small Python scripts for that situation:
 |---|---|---|
 | Stop the console from updating | `pin/ps5-fw-pin.py` | [pin/README.md](pin/README.md) |
 | Go back to an older firmware (e.g. 14.00 to 13.60) | `downgrade/ps5-fw-downgrade.py` | [downgrade/README.md](downgrade/README.md) |
+| Move to a **specific** newer firmware (the Update button only offers the latest) | `PS5/UPDATE/` on a USB stick | [upgrade/README.md](upgrade/README.md) |
 | Allow updates again once the exploit supports them | `pin/ps5-fw-unpin.py` | [pin/README.md](pin/README.md#undo-the-pin) |
 
 ## Before you start
